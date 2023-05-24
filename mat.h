@@ -28,7 +28,8 @@ public:
         }
 
     }
-    mat(mat const &b){
+
+    mat(mat const &b) {
         row = b.row;
         col = b.col;
         data = new T *[row];
@@ -39,8 +40,8 @@ public:
             for (int j = 0; j < col; j++) {
                 data[i][j] = b.data[i][j];
             }
+        }
     }
-}
 
     ~mat() {
         for (int i = 0; i < row; i++) {
@@ -49,20 +50,22 @@ public:
         delete[] data;
     }
 
-    void set(int r, int c, T value) {
+    bool  set(int r, int c, T value) {
         data[r][c] = value;
+        return true;
     }
 
     T get(int r, int c) {
         return &data[r][c];
     }
 
-    T set_all(T value) {
+    bool set_all(T value) {
         for (int i = 0; i < row; i++) {
             for (int j = 0; j < col; j++) {
                 data[i][j] = value;
             }
         }
+        return true;
     }
 
     mat *operator*(T dot) {
@@ -108,4 +111,5 @@ public:
         }
 
 
-    };
+    }
+};
