@@ -1,5 +1,4 @@
-#include <iostream>;
-
+#include <iostream>
 template<class T>
 class mat {
     int row, col;
